@@ -1,0 +1,27 @@
+{
+    "collection": "@nestjs/schematics",
+    "monorepo": true,
+    "compilerOptions": {
+        "webpack": true
+    },
+    "projects": {
+        "wheel": {
+            "type": "application",
+            "root": "apps/wheel",
+            "entryFile": "main",
+            "sourceRoot": "apps/wheel/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/wheel/tsconfig.app.json"
+            }
+        },
+        "pg": {
+            "type": "application",
+            "root": "apps/pg",
+            "entryFile": "main",
+            "sourceRoot": "apps/pg/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/pg/tsconfig.app.json"
+            }
+        }
+    }
+}
