@@ -1,6 +1,8 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { MongooseModule } from "@nestjs/mongoose";
+import { AuthModule } from "./auth/auth.module";
+import { UserModule } from "./user/user.module";
 
 @Module({
     imports: [
@@ -8,6 +10,8 @@ import { MongooseModule } from "@nestjs/mongoose";
             envFilePath: [".env", "apps/pg/.env"],
         }),
         MongooseModule.forRoot(process.env.MONGO_URI),
+        AuthModule,
+        UserModule,
     ],
 })
 export class AppModule {}
