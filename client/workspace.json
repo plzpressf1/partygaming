@@ -2,7 +2,11 @@
     "$schema": "./node_modules/nx/schemas/workspace-schema.json",
     "version": 2,
     "projects": {
+        "api": "libs/api",
+        "components-user-bar": "libs/components/user-bar",
+        "hooks-fetch": "libs/hooks/fetch",
         "layouts-main": "libs/layouts/main",
+        "types": "libs/types",
         "wheel": "apps/wheel"
     }
 }

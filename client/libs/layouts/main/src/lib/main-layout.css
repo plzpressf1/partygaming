@@ -8,3 +8,9 @@ body {
     background-color: #22262a;
     color: #747885;
 }
+
+header {
+    display: flex;
+    gap: 10px;
+    width: 100vw;
+}
