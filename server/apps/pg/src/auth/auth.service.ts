@@ -3,6 +3,7 @@ import { Model } from "mongoose";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { JwtService } from "@nestjs/jwt";
+import { TokenizedUser } from "@pg/interfaces";
 import { UserService } from "../user/user.service";
 import { User } from "../user/schemas/user.schema";
 import { Token, TokenDocument } from "./schemas/token.schema";
@@ -58,27 +59,19 @@ export class AuthService {
     }
 
     private generateTokens(user: User) {
-        const id = user["_id"].toString();
+        const payload: TokenizedUser = {
+            id: user["_id"].toString(),
+            name: user.name,
+        };
         return {
-            accessToken: this.jwtService.sign(
-                {
-                    _id: user["_id"],
-                    name: user.name,
-                },
-                {
-                    secret: process.env.JWT_ACCESS_SECRET,
-                    expiresIn: "15m",
-                },
-            ),
-            refreshToken: this.jwtService.sign(
-                {
-                    id,
-                },
-                {
-                    secret: process.env.JWT_REFRESH_SECRET,
-                    expiresIn: "30d",
-                },
-            ),
+            accessToken: this.jwtService.sign(payload, {
+                secret: process.env.JWT_ACCESS_SECRET,
+                expiresIn: "15m",
+            }),
+            refreshToken: this.jwtService.sign(payload, {
+                secret: process.env.JWT_REFRESH_SECRET,
+                expiresIn: "30d",
+            }),
         };
     }
 }

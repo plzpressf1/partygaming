@@ -11,6 +11,8 @@
         "outDir": "./dist",
         "baseUrl": "./",
         "incremental": true,
-        "paths": {}
+        "paths": {
+            "@pg/interfaces": ["../interfaces"]
+        }
     }
 }
