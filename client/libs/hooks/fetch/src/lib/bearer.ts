@@ -44,16 +44,17 @@ export const useBearerFetch = <T>(
     url: string,
     initialValue: T,
     httpMethod: AxiosHttpMethod = "get",
-): [boolean, T] => {
+): [boolean, number, T] => {
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(0);
     const [data, setData] = useState<T>(initialValue);
 
     useEffect(() => {
-        $bearer[httpMethod]<T>(url).then((resp) => {
-            setData(resp.data);
-            setLoading(false);
-        });
+        $bearer[httpMethod]<T>(url)
+            .then((resp) => setData(resp.data))
+            .catch((err) => setError(err.response.status))
+            .finally(() => setLoading(false));
     }, []);
 
-    return [loading, data];
+    return [loading, error, data];
 };
