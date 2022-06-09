@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { UserBar } from "@pg/components/user-bar";
-import "./main-layout.css";
+import "./main-layout.scss";
 
 export const MainLayout = ({ children }: { children: ReactNode }) => {
     return (

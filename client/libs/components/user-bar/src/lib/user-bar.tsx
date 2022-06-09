@@ -1,5 +1,5 @@
 import { fetchUser } from "@pg/api";
-import styles from "./styles.module.css";
+import styles from "./user-bar.module.scss";
 
 export const UserBar = () => {
     const [loading, error, user] = fetchUser();
