@@ -1,0 +1,35 @@
+@import "libs/styles/colors";
+
+.contentItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 55px;
+    border-radius: 5px;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.input {
+    background-color: $colBack;
+
+    i {
+        font-size: 30px;
+        margin-right: 12px;
+        color: $colPrimary;
+    }
+
+    .text {
+        width: 100%;
+        color: $colSecondary;
+    }
+}
+
+.highlighted {
+    color: $colContrast;
+    background-color: $colHighlight;
+    justify-content: center;
+}

@@ -1,0 +1,21 @@
+@import "libs/styles/colors";
+
+.forgot {
+    margin-bottom: -10px;
+    margin-left: auto;
+    color: $colContrast;
+    background-color: $colDark;
+    padding: 6px 12px;
+    &:hover {
+        background-color: lighten($colDark, 5);
+    }
+}
+
+.discord {
+    color: $colContrast;
+    background-color: $colDiscord;
+    justify-content: center;
+    i {
+        margin-right: 5px;
+    }
+}
