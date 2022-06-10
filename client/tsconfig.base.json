@@ -21,6 +21,7 @@
             "@pg/hooks/fetch": ["libs/hooks/fetch/src/index.ts"],
             "@pg/interfaces": ["../interfaces"],
             "@pg/layouts/main": ["libs/layouts/main/src/index.ts"],
+            "@pg/stores": ["libs/stores/src/index.ts"],
             "@pg/types": ["libs/types/src/index.ts"]
         }
     },

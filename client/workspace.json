@@ -8,6 +8,7 @@
         "components-user-bar": "libs/components/user-bar",
         "hooks-fetch": "libs/hooks/fetch",
         "layouts-main": "libs/layouts/main",
+        "stores": "libs/stores",
         "types": "libs/types",
         "wheel": "apps/wheel"
     }
