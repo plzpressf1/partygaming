@@ -6,10 +6,10 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
     return (
         <>
             <header>
-                <h1>
-                    <span>Logo Here</span>
-                </h1>
-                <UserBar />
+                <h1>[PG] Party Gaming</h1>
+                <div className="user-bar-wrapper">
+                    <UserBar/>
+                </div>
             </header>
             <main>{children}</main>
         </>

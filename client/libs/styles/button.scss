@@ -1,0 +1,16 @@
+@import "./colors";
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button.highlighted {
+    background-color: $colHighlight;
+    color: $colContrast;
+}
+
+button.highlighted:hover {
+    background-color: darken($colHighlight, 10);
+    color: darken($colContrast, 3);
+}

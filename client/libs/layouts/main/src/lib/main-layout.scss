@@ -4,23 +4,48 @@
     box-sizing: border-box;
 }
 
-button, input[type="submit"], input[type="reset"] {
+button, input[type="text"], input[type="password"], input[type="submit"] {
     background: none;
     color: inherit;
     border: none;
     padding: 0;
     font: inherit;
-    cursor: pointer;
     outline: inherit;
 }
 
+@import "libs/styles/colors";
+
 body {
-    background-color: #22262a;
-    color: #747885;
+    background-color: $colPrimary;
+    color: $colSecondary;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header {
     display: flex;
     gap: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    align-items: center;
     width: 100vw;
+    height: 100px;
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .user-bar-wrapper {
+        margin-left: auto;
+    }
+}
+
+main {
+    height: 100%;
+    background-color: $colBack;
+    border-top-left-radius: 30px;
 }
