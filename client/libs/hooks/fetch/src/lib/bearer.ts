@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { AxiosRequest } from "./request.interface";
 
 interface RefreshResponse {
     accessToken: string;
@@ -12,7 +13,7 @@ const $bearer = axios.create({
 const LocalStorageAccessTokenKey = "pg-access-token";
 
 $bearer.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem(LocalStorageAccessTokenKey)}`;
+    if (config.headers) config.headers.Authorization = `Bearer ${localStorage.getItem(LocalStorageAccessTokenKey)}`;
     return config;
 });
 
@@ -38,19 +39,18 @@ $bearer.interceptors.response.use(
     }
 );
 
-export type AxiosHttpMethod = "get" | "post" | "put" | "patch" | "delete";
-
 export const useBearerFetch = <T>(
     url: string,
     initialValue: T,
-    httpMethod: AxiosHttpMethod = "get",
+    { httpMethod, config }: AxiosRequest = { httpMethod: "get", config: {} },
 ): [boolean, number, T] => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(0);
     const [data, setData] = useState<T>(initialValue);
 
+    const method = httpMethod ? httpMethod : "get";
     useEffect(() => {
-        $bearer[httpMethod]<T>(url)
+        $bearer[method]<T>(url, config)
             .then((resp) => setData(resp.data))
             .catch((err) => setError(err.response.status))
             .finally(() => setLoading(false));
