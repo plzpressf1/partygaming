@@ -1,15 +1,11 @@
 import { fetchUser } from "@pg/api";
-import styles from "./user-bar.module.scss";
+import { UserBarUnauthorized } from "./uer-bar-unauthorized";
+import { UserBarAuthorized } from "./user-bar-authorized";
 
 export const UserBar = () => {
     const [loading, error, user] = fetchUser();
 
     if (loading) return <div>Loading...</div>;
-    if (error) return <div>Unauthorized</div>;
-    if (!user) return null;
-    return (
-        <div className={styles.bar}>
-            {user.name}
-        </div>
-    );
+    if (error || !user) return <UserBarUnauthorized/>;
+    return <UserBarAuthorized user={user}/>;
 };
