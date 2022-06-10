@@ -3,6 +3,8 @@
     "version": 2,
     "projects": {
         "api": "libs/api",
+        "components-auth-modal": "libs/components/auth-modal",
+        "components-modal": "libs/components/modal",
         "components-user-bar": "libs/components/user-bar",
         "hooks-fetch": "libs/hooks/fetch",
         "layouts-main": "libs/layouts/main",

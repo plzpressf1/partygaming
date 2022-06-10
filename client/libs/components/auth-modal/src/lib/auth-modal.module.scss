@@ -1,0 +1,98 @@
+@import "libs/styles/colors";
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    min-height: 485px;
+    background-color: $colPrimary;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    height: 55px;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: 400;
+        color: $colPrimary;
+        background-color: $colSecondary;
+
+        &.active {
+            color: $colHighlight;
+            background-color: $colPrimary;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    gap: 20px;
+    padding: 50px;
+
+    .forgot {
+        margin-bottom: -10px;
+        margin-left: auto;
+        color: $colContrast;
+        background-color: $colDark;
+        padding: 6px 12px;
+        &:hover {
+            background-color: lighten($colDark, 5);
+        }
+    }
+}
+
+.contentItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 55px;
+    border-radius: 5px;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.input {
+    background-color: $colBack;
+
+    i {
+        font-size: 30px;
+        margin-right: 12px;
+        color: $colPrimary;
+    }
+
+    .text {
+        width: 100%;
+        color: $colSecondary;
+    }
+}
+
+.login {
+    color: $colContrast;
+    background-color: $colHighlight;
+    justify-content: center;
+}
+
+.discord {
+    color: $colContrast;
+    background-color: $colDiscord;
+    justify-content: center;
+    i {
+        margin-right: 5px;
+    }
+}

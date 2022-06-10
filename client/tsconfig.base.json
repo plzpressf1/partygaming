@@ -15,6 +15,8 @@
         "baseUrl": ".",
         "paths": {
             "@pg/api": ["libs/api/src/index.ts"],
+            "@pg/components/auth-modal": ["libs/components/auth-modal/src/index.ts"],
+            "@pg/components/modal": ["libs/components/modal/src/index.ts"],
             "@pg/components/user-bar": ["libs/components/user-bar/src/index.ts"],
             "@pg/hooks/fetch": ["libs/hooks/fetch/src/index.ts"],
             "@pg/interfaces": ["../interfaces"],
