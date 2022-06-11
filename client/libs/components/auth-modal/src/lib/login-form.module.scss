@@ -1,11 +1,26 @@
 @import "libs/styles/colors";
 
-.forgot {
+.upper {
     margin-bottom: -10px;
-    margin-left: auto;
-    color: $colContrast;
-    background-color: $colDark;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.forgot, .error {
     padding: 6px 12px;
+    color: $colContrast;
+    border-radius: 5px;
+}
+
+.error {
+    background-color: $colError;
+}
+
+.forgot {
+    background-color: $colDark;
+    margin-left: auto;
+
     &:hover {
         background-color: lighten($colDark, 5);
     }
@@ -15,6 +30,7 @@
     color: $colContrast;
     background-color: $colDiscord;
     justify-content: center;
+
     i {
         margin-right: 5px;
     }

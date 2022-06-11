@@ -1,14 +1,16 @@
-import { UserStore } from "@pg/stores";
+import { useState } from "react";
 import { AuthModal } from "@pg/components/auth-modal";
 import styles from "./user-bar-unauthorized.module.scss";
 
 export const UserBarUnauthorized = () => {
+    const [modal, setModal] = useState(false);
+
     return (
         <>
-            <AuthModal/>
+            {modal && <AuthModal onClose={() => setModal(false)}/>}
             <button
                 className={`${styles.button} highlighted`}
-                onClick={() => UserStore.setAuthModalActive(true)}
+                onClick={() => setModal(true)}
             >
                 Войти
             </button>

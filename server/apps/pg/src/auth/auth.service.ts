@@ -29,6 +29,7 @@ export class AuthService {
         } catch (e) {
             throw new UnauthorizedException();
         }
+        throw new UnauthorizedException();
     }
 
     async refreshAccessToken(refreshToken: string) {

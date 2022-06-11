@@ -1,14 +1,12 @@
 import { useState } from "react";
-import { observer } from "mobx-react";
 import { Modal } from "@pg/components/modal";
-import { UserStore } from "@pg/stores";
 import { RegisterForm } from "./register-form";
 import { LoginForm } from "./login-form";
 import styles from "./auth-modal.module.scss";
 
 type FormType = "login" | "register";
 
-export const AuthModalComponent = () => {
+export const AuthModal = ({ onClose }: { onClose: () => void }) => {
     const [form, setForm] = useState<FormType>("login");
 
     const changeForm = () => {
@@ -16,11 +14,10 @@ export const AuthModalComponent = () => {
         else setForm("login");
     };
 
-    if (!UserStore.authModalActive) return null;
     return (
         <Modal
             centered={true}
-            onClose={() => UserStore.setAuthModalActive(false)}
+            onClose={onClose}
         >
             <div className={styles.wrapper}>
                 <div className={styles.header}>
@@ -47,5 +44,3 @@ export const AuthModalComponent = () => {
         </Modal>
     );
 };
-
-export const AuthModal = observer(AuthModalComponent);

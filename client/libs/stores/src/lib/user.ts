@@ -1,17 +1,19 @@
 import { observable, action, makeObservable } from "mobx";
+import { Maybe } from "@pg/types";
+import { TokenizedUser } from "@pg/interfaces";
 
 class Store {
-    public authModalActive = false;
+    public user: Maybe<TokenizedUser> = null;
 
     constructor() {
         makeObservable(this, {
-            authModalActive: observable,
-            setAuthModalActive: action,
+            user: observable,
+            setUser: action,
         });
     }
 
-    setAuthModalActive(active: boolean) {
-        this.authModalActive = active;
+    setUser(user: TokenizedUser) {
+        this.user = user;
     }
 }
 
