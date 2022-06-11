@@ -1,6 +1,6 @@
 import { compare, hash } from "bcrypt";
 import { Model } from "mongoose";
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { Injectable, InternalServerErrorException, UnauthorizedException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { JwtService } from "@nestjs/jwt";
 import { TokenizedUser } from "@pg/interfaces";
@@ -17,7 +17,7 @@ export class AuthService {
         private jwtService: JwtService,
     ) {}
 
-    async auth(credentials: AuthDto): Promise<{ accessToken: string; refreshToken: string }> {
+    async login(credentials: AuthDto): Promise<{ accessToken: string; refreshToken: string }> {
         try {
             const user = await this.userService.getUserByLogin(credentials.login);
             const passwordEquals = await compare(credentials.password, user?.password);
@@ -30,6 +30,14 @@ export class AuthService {
             throw new UnauthorizedException();
         }
         throw new UnauthorizedException();
+    }
+
+    async logout(user: string) {
+        try {
+            await this.tokensModel.findOneAndDelete({ user });
+        } catch (e) {
+            throw new InternalServerErrorException();
+        }
     }
 
     async refreshAccessToken(refreshToken: string) {

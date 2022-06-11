@@ -12,7 +12,7 @@ class Store {
         });
     }
 
-    setUser(user: TokenizedUser) {
+    setUser(user: Maybe<TokenizedUser>) {
         this.user = user;
     }
 }

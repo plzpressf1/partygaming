@@ -40,7 +40,10 @@ header {
     }
 
     .user-bar-wrapper {
+        display: flex;
+        align-items: center;
         margin-left: auto;
+        height: 100%;
     }
 }
 

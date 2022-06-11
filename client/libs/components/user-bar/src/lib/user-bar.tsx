@@ -21,7 +21,7 @@ const UserBarComponent = () => {
 
     if (UserStore.user) return <UserBarAuthorized user={UserStore.user}/>;
     if (loading) return <div>Loading...</div>;
-    if (error) return <UserBarUnauthorized/>;
+    if (error || UserStore.user === null) return <UserBarUnauthorized/>;
     return null;
 };
 
