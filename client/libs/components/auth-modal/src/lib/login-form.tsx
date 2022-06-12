@@ -26,6 +26,12 @@ export const LoginForm = () => {
         }
     };
 
+    const onInputKeyUp = (key: string) => {
+        if (key === "Enter") {
+            auth();
+        }
+    };
+
     let errorText = "";
     if (error >= 400) {
         if (error === 401) errorText = "Неверный логин/пароль";
@@ -47,6 +53,7 @@ export const LoginForm = () => {
                     placeholder="логин"
                     className={styles.text}
                     ref={loginRef}
+                    onKeyUp={(e) => onInputKeyUp(e.key)}
                 />
             </div>
             <div
@@ -59,6 +66,7 @@ export const LoginForm = () => {
                     placeholder="пароль"
                     className={styles.text}
                     ref={passwordRef}
+                    onKeyUp={(e) => onInputKeyUp(e.key)}
                 />
             </div>
             <button

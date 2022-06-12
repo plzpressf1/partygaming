@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { $axiosBearer, $axiosDefault } from "@pg/api";
+import { AxiosInstance } from "axios";
 
 type AxiosHttpMethod = "get" | "post" | "put" | "patch" | "delete";
 
@@ -8,14 +7,11 @@ interface UseFetchParams<T, D = unknown> {
     url: string;
     initialValue: T;
     httpMethod?: AxiosHttpMethod,
-    bearer?: boolean;
     payload?: D,
     makePayload?: () => D,
 }
 
-export const useFetch = <T>(params: UseFetchParams<T>): [boolean, number, T, () => void] => {
-    const axiosInstance = params.bearer ? $axiosBearer : $axiosDefault;
-
+export const useFetch = <T>(axiosInstance: AxiosInstance ,params: UseFetchParams<T>): [boolean, number, T, () => void] => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(0);
     const [data, setData] = useState<T>(params.initialValue);
@@ -44,7 +40,3 @@ export const useFetch = <T>(params: UseFetchParams<T>): [boolean, number, T, () 
 
     return [loading, error, data, onDemand];
 };
-
-export const useBearerFetch = <T>(params: UseFetchParams<T>): [boolean, number, T, () => void] => {
-    return useFetch<T>({ ...params, bearer: true });
-}

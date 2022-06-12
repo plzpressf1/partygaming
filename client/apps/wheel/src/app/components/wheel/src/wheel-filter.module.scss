@@ -1,0 +1,28 @@
+@import "libs/styles/colors";
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 28px;
+
+    li {
+        padding: 10px;
+        color: $colContrast;
+        background-color: $colPrimary;
+        min-width: 52px;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &.selected {
+            background-color: #5a845a;
+        }
+    }
+}
