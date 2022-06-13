@@ -2,7 +2,19 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "outDir": "../../dist/out-tsc",
-        "types": ["node"]
+        "types": ["node"],
+        "paths": {
+            "@pg/api": ["libs/api/src/index.ts"],
+            "@pg/components/auth-modal": ["libs/components/auth-modal/src/index.ts"],
+            "@pg/components/modal": ["libs/components/modal/src/index.ts"],
+            "@pg/components/user-bar": ["libs/components/user-bar/src/index.ts"],
+            "@pg/hooks/fetch": ["libs/hooks/fetch/src/index.ts"],
+            "@pg/interfaces": ["../interfaces"],
+            "@pg/layouts/main": ["libs/layouts/main/src/index.ts"],
+            "@pg/stores": ["libs/stores/src/index.ts"],
+            "@pg/types": ["libs/types/src/index.ts"],
+            "@wheel/components": ["apps/wheel/src/app/components/index.ts"]
+        }
     },
     "files": [
         "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
