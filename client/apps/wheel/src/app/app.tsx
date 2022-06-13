@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { MainPage, DiscordMainPage } from "./pages";
-import { MainMenu } from "./components/main-menu";
+import { MainMenu } from "@wheel/components";
+import { SoloPage, DiscordPage } from "./pages";
 import styles from "./app.module.scss";
 
 export function App() {
@@ -11,8 +11,8 @@ export function App() {
             </aside>
             <section>
                 <Routes>
-                    <Route path="/" element={<MainPage/>}/>
-                    <Route path="/discord" element={<DiscordMainPage/>}/>
+                    <Route path="/" element={<SoloPage/>}/>
+                    <Route path="/discord" element={<DiscordPage/>}/>
                 </Routes>
             </section>
         </div>

@@ -1,9 +1,10 @@
 import styles from "./page.module.scss";
+import { Wheel } from "@wheel/components";
 
-export const DiscordMainPage = () => {
+export const SoloPage = () => {
     return (
         <div className={styles.wrapper}>
-            Discord
+            <Wheel/>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFetch } from "@pg/hooks/fetch";
-import { $wheelApi } from "../../../api";
+import { $wheelApi } from "../../../api/old";
 import { WheelStore } from "../../../stores/wheel-store";
 import styles from "./wheel-filter.module.scss";
 
