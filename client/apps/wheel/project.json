@@ -15,7 +15,14 @@
                 "main": "apps/wheel/src/main.tsx",
                 "polyfills": "apps/wheel/src/polyfills.ts",
                 "tsConfig": "apps/wheel/tsconfig.app.json",
-                "assets": ["apps/wheel/src/favicon.ico", "apps/wheel/src/assets"],
+                "assets": [
+                    "apps/wheel/src/favicon.ico",
+                    {
+                        "input": "libs/assets",
+                        "glob": "**/*",
+                        "output": "assets"
+                    }
+                ],
                 "styles": [],
                 "scripts": [],
                 "webpackConfig": "@nrwl/react/plugins/webpack"
