@@ -9,6 +9,12 @@ export class User {
     login: string;
 
     @Prop()
+    email: string;
+
+    @Prop() // activation code, "" = user email confirmed
+    code: string;
+
+    @Prop()
     password: string;
 
     @Prop()

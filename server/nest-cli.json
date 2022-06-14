@@ -2,7 +2,9 @@
     "collection": "@nestjs/schematics",
     "monorepo": true,
     "compilerOptions": {
-        "webpack": true
+        "webpack": true,
+        "assets": ["mail/templates/**/*"],
+        "watchAssets": true
     },
     "projects": {
         "wheel": {
